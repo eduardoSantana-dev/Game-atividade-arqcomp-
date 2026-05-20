@@ -10,16 +10,52 @@
 
 <body onkeypress="andar(event.key)">
 
-    <div id="player"></div>
-    <div class="inimigo"></div>
+    <div id="campo">
+
+    </div>
 </body>
 
 </html>
 <script>
     x = 0
     y = 0
-    function andar(key) {
+    listaObstaculoFase1 = [
+        {tipo:'inimigo' ,top: '0px', left: '150px', width: '250px', height: '200px' },
+        {tipo:'inimigo' ,top: '0px', left: '400px', width: '270px', height: '100px' },
+        {tipo:'inimigo' ,top: '0px', left: '660px', width: '70px', height: '300px' },
+        {tipo:'inimigo' ,top: '300px', left: '600px', width: '200px', height: '250px' },
+        {tipo:'inimigo' ,top: '300px', left: '0px', width: '400px', height: '4400px' },
+        {tipo:'inimigo' ,top: '150px', left: '450px', width: '150px', height: '400px' },
+        {tipo:'inimigo' ,top: '600px', left: '450px', width: '350px', height: '60px' },
+        {tipo:'inimigo' ,top: '380px', left: '850px', width: '240px', height: '2500px' },
+        {tipo:'inimigo' ,top: '270px', left: '1090px', width: '190px', height: '30px' },
+        {tipo:'inimigo' ,top: '270px', left: '1050px', width: '40px', height: '200px' },
+        {tipo:'inimigo' ,top: '000px', left: '730px', width: '270px', height: '340px' },
+        {tipo:'inimigo' ,top: '000px', left: '1000px', width: '270px', height: '100px' },
+        {tipo:'inimigo' ,top: '130px', left: '1100px', width: '140px', height: '100px' },
+        {tipo:'quiz',quiz:1 ,top: '320px', left: '1150px', width: '120px', height: '120px' },
+        {tipo:'quiz',quiz:2 ,top: '460px', left: '1150px', width: '120px', height: '120px' },
+        {tipo:'quiz',quiz:3 ,top: '600px', left: '1150px', width: '120px', height: '120px' },
 
+    ]
+
+
+    function carregarInimigos(lista) {
+        x = 0
+        y = 0
+        campo.innerHTML = '<div id="player"></div>'
+        for (let i = 0; i < lista.length; i++) {
+            let inimigo = lista[i]
+            campo.innerHTML += `<div class="${inimigo.tipo}" style="top:${inimigo.top};left:${inimigo.left};width:${inimigo.width};height:${inimigo.height}">
+                ${inimigo.tipo =='quiz'?`Quiz s${inimigo.quiz}`:''}
+                
+                </div>`
+        }
+
+    }
+    carregarInimigos(listaObstaculoFase1)
+
+    function andar(key) {
         if (key == 'a') {
             x -= 10
         }
@@ -31,15 +67,38 @@
         }
         if (key == 'w') {
             y -= 10
-
         }
-        player.style.marginTop = `${y}px`
-        player.style.marginLeft = `${x}px`
-        verificar()
+        player.style.left = x + 'px'
+        player.style.top = y + 'px'
+        verificar(listaObstaculoFase1)
     }
-    function verificar(){
-          if (player.style.marginLeft == '300px') {
-            alert('morreu')
+    function verificar(lista) {
+
+        for (let i = 0; i < lista.length; i++) {
+
+            let inimigo = lista[i]
+
+            let inimigoX = parseInt(inimigo.left)
+            let inimigoY = parseInt(inimigo.top)
+            let inimigoWidth = parseInt(inimigo.width)
+            let inimigoHeight = parseInt(inimigo.height)
+
+            let tamanhoPlayer = 20
+
+            let colidiu =
+                x < inimigoX + inimigoWidth &&
+                x + tamanhoPlayer > inimigoX &&
+                y < inimigoY + inimigoHeight &&
+                y + tamanhoPlayer > inimigoY
+
+
+            if (colidiu) {
+                if(inimigo.tipo =='inimigo'){
+                    carregarInimigos(listaObstaculoFase1)
+                }else if(inimigo.tipo =='quiz'){
+                    alert(inimigo.quiz)
+                }
+            }
         }
     }
 </script>
