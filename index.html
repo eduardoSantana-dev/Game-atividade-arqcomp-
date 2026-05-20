@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stlyle.css">
+</head>
+
+<body onkeypress="andar(event.key)">
+
+    <div id="player"></div>
+    <div class="inimigo"></div>
+</body>
+
+</html>
+<script>
+    x = 0
+    y = 0
+    function andar(key) {
+
+        if (key == 'a') {
+            x -= 10
+        }
+        if (key == 'd') {
+            x += 10
+        }
+        if (key == 's') {
+            y += 10
+        }
+        if (key == 'w') {
+            y -= 10
+
+        }
+        player.style.marginTop = `${y}px`
+        player.style.marginLeft = `${x}px`
+        verificar()
+    }
+    function verificar(){
+          if (player.style.marginLeft == '300px') {
+            alert('morreu')
+        }
+    }
+</script>

@@ -1,0 +1,16 @@
+#player{
+    position: fixed;    
+    background-color: aqua;
+    width: 100PX;
+    height: 100PX;
+   
+    
+}
+.inimigo{
+     position: fixed;    
+    background-color: rgb(255, 0, 0);
+    width: 100PX;
+    height: 100PX;
+    margin-top: 0px; 
+    margin-left: 390px
+}
