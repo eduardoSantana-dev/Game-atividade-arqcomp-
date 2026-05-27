@@ -4,6 +4,7 @@
 }
 body{
     overflow: hidden;
+    position: relative;
 }
 #campo {
     background-color: #101010;
@@ -35,4 +36,68 @@ body{
     justify-content: center;
     color: white;
     font-weight: bolder;
+    
 }
+.quizModalContainer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #10101086;
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 1s opacity;
+
+}
+.cardquiz{
+    background-color: #070707;
+    width: 500px;
+    height: 500px;
+     border-radius: 20px;
+     color: #Fff;
+     h3{
+        text-align: center;
+        margin-top: 3%;
+     }
+}
+.questoes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:50px; 
+    justify-content: center;
+    height: 90%;
+    
+.questao{
+    width: 90%;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    background-color: #3b4b64;
+    display: flex;
+    align-items: center;
+    padding: 2% 2%;
+    cursor: pointer;
+    span{
+        color: #bd16cc
+    };
+    p{
+        margin-left: 2%;
+        text-align: center;
+        flex: 1;
+    }
+    &:hover{
+        background-color: #021e5c;
+    }
+
+}
+.selecionado{
+     background-color: #012269;
+}
+}
+
+
