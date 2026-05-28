@@ -29,7 +29,7 @@ body{
 }
 .quiz{
     border-radius: 100%;
-    background-color: #84CC16;
+    background-color: #83cc16;
     position: absolute;
     display: flex;
     align-items: center;
@@ -101,3 +101,53 @@ body{
 }
 
 
+
+#MsgContainer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #10101086;
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.cardMsg{
+    background-color: #070707;
+    width: 500px;
+    height: 200px;
+     border-radius: 20px;
+     color: #Fff;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+    p{
+        font-size: 20px;
+        color: #83cc16;
+        margin-top:40px ;
+        font-weight: bold;
+
+    }
+    button{
+        margin-top:40px ;
+        width: 200px;
+        height: 40px;
+        border: 1px solid #bd16cc;
+        background-color:transparent;
+        border-radius: 10px;
+        font-weight: bold;
+        color: #bd16cc;
+        font-size: 17px;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+            color: #ffffff;
+            background-color: #bd16cc;
+                    border: none;
+
+        }
+    }
+}

@@ -16,15 +16,20 @@
     <div class="quizModalContainer" id="modalQuiz" >
        
     </div>
+     <div id="MsgContainer">
+       <div class="cardMsg">
+        <p>Parabens Você concluiu o game!</p>
+        <button onclick="window.location.reload()">Resetar</button>
+       </div>
+    </div>
 </body>
 
 </html>
 <script src="fase1.js"></script>
-<script src="fase2.js"></script>
 <script src="logicaQuiz.js"></script>
 <script>
     
-    let fase = 1
+    liberado = true
     x = 0
     y = 0
 
@@ -35,16 +40,18 @@
         for (let i = 0; i < lista.length; i++) {
             let inimigo = lista[i]
             campo.innerHTML += `<div class="${inimigo.tipo}" style="top:${inimigo.top};left:${inimigo.left};width:${inimigo.width};height:${inimigo.height}" ${inimigo.tipo =='quiz'?`id="quizCirculo${inimigo.quiz}"`:''}>
-                ${inimigo.tipo =='quiz'?`Quiz: ${inimigo.quiz}`:''}
+                ${inimigo.tipo =='quiz'?` ${inimigo.quiz}`:''}
                 
                 </div>`
         }
 
     }
-    carregarInimigos(listaObstaculoFase2)
+    carregarInimigos(listaObstaculoFase1)
 
     function andar(key) {
-        if (key == 'a') {
+        
+        if(liberado){
+              if (key == 'a') {
             x -= 10
         }
         if (key == 'd') {
@@ -58,7 +65,8 @@
         }
         player.style.left = x + 'px'
         player.style.top = y + 'px'
-        verificar(listaObstaculoFase2)
+        verificar(listaObstaculoFase1)
+        }
     }
     function verificar(lista) {
 
@@ -82,7 +90,7 @@
 
             if (colidiu) {
                 if(inimigo.tipo =='inimigo'){
-                    carregarInimigos(listaObstaculoFase1)
+                    window.location.reload();
                 }else if(inimigo.tipo =='quiz'){
                     carregarQuiz(inimigo.quizInfo,inimigo.quiz)
                 }
