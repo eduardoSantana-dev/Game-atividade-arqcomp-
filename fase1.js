@@ -43,7 +43,7 @@ let fase1Quiz8 = {
 let fase1Quiz9 = {
     pergunta:'Quais os nomes do processadores que tem 2 e 4 nucleos',
     questoes:['Dual N e squad N','I2 e I4','2N e 4N','dual core e quad core'],
-    qCerta:1
+    qCerta:3
 }
     
     let listaObstaculoFase1 = [

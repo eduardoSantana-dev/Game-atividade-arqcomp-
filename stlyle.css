@@ -114,6 +114,18 @@ body{
     align-items: center;
     justify-content: center;
 }
+#MsgContainer2{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #10101086;
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .cardMsg{
     background-color: #070707;
     width: 500px;
